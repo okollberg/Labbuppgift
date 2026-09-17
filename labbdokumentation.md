@@ -73,6 +73,24 @@ Steg-för-steg-dokumentation (med
 
     ![nätverkskortdet](/Linux5.2.png)
 
+*Windows*
+
+1. Skapar mappen och undermappar med new-item -itemtype directory -path c:\systementor\konsultdata
+
+    ![skapamappwindows](/Windows1.png)
+
+2. Jag använde $acl = get-acl c:\systementor\konsultdata för att hämta behörighetsstrukturen och spara den i variabel $acl. Använde sedan $acl.access för visa behörighetsstrukturen i variabeln.
+
+    ![aclbehörighetsstruktur](/Windows2.png)
+
+3. Pingar Linux servern som har 192.168.10.10
+
+    ![pinglinux](/Windows3.png)
+
+    Inspekterar nätverksinställningarna med ipconfig /all
+
+    ![ipconfigwindows](/Windows3.2.png)
+
 **4. Git & Versionshantering**  
 Länk till ditt Git-repository samt
 utskrift/skärmdump på din git log --online som visar din ändringshistorik.
