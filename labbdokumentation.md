@@ -1,19 +1,21 @@
 # **Labbmiljö, Git, CLI och AI** 
 
 Oscar Kollberg  
-2026-09-14  
+2026-09-22  
 *Introduktion till yrkesrollen och grunderna inom IT infrastruktur*
 
 
 **1. Syfte**
 
-Syftet med denna labb är att sätta upp ett virtuellt nätverk där man använder både Linux och windows. Konfigurera nätverket och arbeta med CLI samt dokumentera via git och github
+Syftet med uppgiften är att få praktisk erfarenhet av Linux, Windows, nätverk och kommandoraden. Tränar även på att dokumentera med Git och använda AI som hjälpmedel samt göra en kritisk granskning av informationen.
 
 
 **2. Labbmiljö & Nätverk**  
 
 Jag valde att sätta upp min labbmiljö i Oracle Virtualbox. Kör en Linux Ubuntu server samt en windows 11 klient och lägger detta som internt nätverk "Labbmiljö" i Virtualbox
 ![virtualboxuppsättning](/virtualboxlabb.jpg)
+  
+
 
 | Hostname | Operativsystem | Ip address | Subnätmask | Standard gateway |  
 |---|---|---|---|---|
@@ -30,8 +32,7 @@ sudo nano /etc/netplan/00-installer-config.yaml
 Testade sedan att pinga mellan klienterna. Jag stötte dock på problem då Windows brandväggen blockerade ping. Detta löste jag genom att lägga in en regel i Windows brandväggen. Efter det fungerade det att pinga. 
 
 **3. Kommandoradsgenomförande**  
-Steg-för-steg-dokumentation (med
-(CLI-kommandon och skärmdumpar/kodblock) för både Linux och Windows.)
+
 
 *Linux*
 
@@ -61,6 +62,7 @@ Steg-för-steg-dokumentation (med
     ![behörigheter](/Linux3.2.png)
 
 4. Kollar behörigheterna med ls -la
+
     ![behörigheter](/Linux4.png)
   
     Där kan man se att ägare har rättigheter att göra allt. Gruppen får r-x på mappen men får inte skriva (w). På .txt filen har konsulter bara rätt att läsa (r)
@@ -92,9 +94,26 @@ Steg-för-steg-dokumentation (med
     ![ipconfigwindows](/Windows3.2.png)
 
 **4. Git & Versionshantering**  
-Länk till ditt Git-repository samt
-utskrift/skärmdump på din git log --online som visar din ändringshistorik.
 
-**5. AI-logg & Reflektion**  
-Prompt, AI-utdata och din kritiska granskning.
+Länk till Git repository https://github.com/okollberg/Labbuppgift
 
+
+
+**5. AI-logg och utvärdering**  
+
+Jag valde att be ChatGPT att förklara bash kommandot chmod och fick då detta AI-utdata:
+
+![chmod1](/chmod1.png)
+![chmod2](/chmod2.png)
+![chmod3](/chmod3.png)
+![chmod4](/chmod4.png)
+
+Jag upplever att svaret var tydligt och gick igenom steg för steg hur man använder kommandot för att ändra behörigheter. Man fick svar på vad de olika rättigheterna innebär och hur man använder både symboler och det oktala systemet.
+Man får även förklaring på hur man använder chmod -R för att ändra behörigheten recursivt när man sätter behörighet på en katalog som innehåller fler kataloger eller filer. 
+Däremot får man ingen tydlig förklaring på vad som händer med nya filer och kataloger som läggs till efter man ändrat behörighet på katalogen.
+
+Jag testade därför av det med att skapa en katalog med en fil i, ändrade behörighet på katalogen och dess innehåll. Därefter skapade jag en ny fil. Där kan man se att filen inte fick samma behörigheterna man tidigare satt.
+
+![chmodtest](/chmodtest.png)
+
+Jag kan inte se några föråldrade kommandon eller hallucinationer. Däremot så har man inte riktigt fått all information så det är alltid viktigt att kolla igenom AI-utdatan och ställa följdfrågor.
