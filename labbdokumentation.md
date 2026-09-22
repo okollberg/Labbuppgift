@@ -12,19 +12,19 @@ Syftet med uppgiften är att få praktisk erfarenhet av Linux, Windows, nätverk
 
 **2. Labbmiljö & Nätverk**  
 
-Jag valde att sätta upp min labbmiljö i Oracle Virtualbox. Kör en Linux Ubuntu server samt en windows 11 klient och lägger detta som internt nätverk "Labbmiljö" i Virtualbox
+Jag valde att sätta upp min labbmiljö i Oracle Virtualbox. Kör en Linux Ubuntu server samt en Windows 11 klient och lägger detta som internt nätverk "Labbmiljö" i Virtualbox
 ![virtualboxuppsättning](/virtualboxlabb.jpg)
   
 
 
-| Hostname | Operativsystem | Ip address | Subnätmask | Standard gateway |  
+| Hostname | Operativsystem | IP-adress | Subnätmask | Standard gateway |  
 |---|---|---|---|---|
 | labb-winclient | Windows 11 | 192.168.10.20 | 255.255.255.0 | Ingen |
 | labb-server |  Ubuntu server | 192.168.10.10 | 255.255.255.0 | Ingen |
 
 Tilldelat IP-adress till Windows via powershell: New-NetIPAddress -InterfaceAlias "Ethernet" -IPAddress 192.168.10.20 -PrefixLength 24
 
-Tilldelat IP-adress till Ununtu via terminal där jag konfigurerade i netplan-filen med:
+Tilldelat IP-adress till Ubuntu via terminal där jag konfigurerade i netplan-filen med:
 sudo nano /etc/netplan/00-installer-config.yaml
 
 ![ipinställning linux](/iplinux.jpg)
@@ -97,6 +97,7 @@ Testade sedan att pinga mellan klienterna. Jag stötte dock på problem då Wind
 
 Länk till Git repository https://github.com/okollberg/Labbuppgift
 
+![gitlog](/gitlog.png)
 
 
 **5. AI-logg och utvärdering**  
@@ -112,7 +113,7 @@ Jag upplever att svaret var tydligt och gick igenom steg för steg hur man anvä
 Man får även förklaring på hur man använder chmod -R för att ändra behörigheten recursivt när man sätter behörighet på en katalog som innehåller fler kataloger eller filer. 
 Däremot får man ingen tydlig förklaring på vad som händer med nya filer och kataloger som läggs till efter man ändrat behörighet på katalogen.
 
-Jag testade därför av det med att skapa en katalog med en fil i, ändrade behörighet på katalogen och dess innehåll. Därefter skapade jag en ny fil. Där kan man se att filen inte fick samma behörigheterna man tidigare satt.
+Jag testade därför av det med att skapa en katalog med en fil i, ändrade behörighet på katalogen och dess innehåll. Därefter skapade jag en ny fil. Där kan man se att filen inte fick samma behörigheter man tidigare satt.
 
 ![chmodtest](/chmodtest.png)
 
